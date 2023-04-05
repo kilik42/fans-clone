@@ -25,11 +25,15 @@ const ProfilePage = () => {
           
 
       </ImageBackground>
-      <Text>profilepage:{user.name}</Text>
-      
-      {/* <Text>profilepage:{user.coverImage}</Text> */}
-      <Text>profilebio:{user.bio}</Text>
-      {/* <Text>profilepage:{user.location}</Text> */}
+
+      <View>
+              <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>{user.name}</Text>
+            
+            {/* <Text>profilepage:{user.coverImage}</Text> */}
+            <Text style = {{color: 'white'}}>1.4k posts 64.3K Likes 15.3 Fans</Text>
+            {/* <Text>profilepage:{user.location}</Text> */}
+      </View>
+     
 
 
       {/* <Text
