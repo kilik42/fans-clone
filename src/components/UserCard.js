@@ -1,4 +1,4 @@
-import { Text, StyleSheet, View, Image,ImageBackground } from 'react-native'
+import { Text, StyleSheet, View, Image,ImageBackground, Pressable} from 'react-native'
 import React, { Component } from 'react'
 import {Link} from 'expo-router';
 
@@ -7,7 +7,9 @@ export default function UserCard({user} ){
     // const {user} = props.user;
   return ( 
    <Link  href={`/user`} asChild> 
-                  
+  <Pressable 
+//   onPress={() => navigation.navigate('ProfilePage')}
+  > 
   <ImageBackground 
     source={{uri: user.coverImage}}
     style={styles.userCard}>
@@ -25,7 +27,7 @@ export default function UserCard({user} ){
        
 
     </ImageBackground>
-
+    </Pressable>
     </Link>
     ) 
 }
