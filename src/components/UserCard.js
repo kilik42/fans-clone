@@ -6,7 +6,7 @@ import {Link} from 'expo-router';
 export default function UserCard({user} ){
     // const {user} = props.user;
   return ( 
-   <Link  href={`/user`} asChild> 
+   <Link  href={`/user/${user.id}`} asChild> 
   <Pressable 
 //   onPress={() => navigation.navigate('ProfilePage')}
   > 
