@@ -20,21 +20,23 @@ const ProfilePage = () => {
           <View style={styles.overlay} />
 
           <SafeAreaView style={{margin: 10}}>
-            <Ionicons name="arrow-back" size={24} color="white" style={{padding: 10}} onPress={()=>router.back()} />
-          </SafeAreaView>
+            <Ionicons name="arrow-back" size={24} color="white" style={{padding: 10, marginTop: -50}} onPress={()=>router.back()} />
           <Text style = {{color: 'white'}}>1.4k posts 64.3K Likes 15.3 Fans</Text>
+          
+          </SafeAreaView>
+          
 
       </ImageBackground>
 
-      <View>
-        <Image src ={user.avatar} style={styles.userImage} />
+      <View style ={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', padding: 10}}>
+        <Image source ={user.avatar} style={styles.userImage} />
        <FontAwesome name="share-square-o" size={24} color="black" />
      
 
 
-      {/* <Text
+      <Text
       onPress={()=>router.back()}
-      > Go Back </Text> */}
+      > Go Back </Text>
                       <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>{user.name}</Text>
                       </View>
     </View>
