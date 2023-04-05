@@ -1,8 +1,8 @@
-import { View, Text, ImageBackground, StyleSheet, SafeAreaView } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet,Image, SafeAreaView } from 'react-native'
 import React from 'react'
 import { useRouter, useSearchParams } from 'expo-router';
 import users from '../../Asset BundleFans/assets/data/users';
-import {Ionicons} from '@expo/vector-icons';
+import {Ionicons,FontAwesome} from '@expo/vector-icons';
 
 const ProfilePage = () => {
    const router = useRouter(); 
@@ -22,24 +22,21 @@ const ProfilePage = () => {
           <SafeAreaView style={{margin: 10}}>
             <Ionicons name="arrow-back" size={24} color="white" style={{padding: 10}} onPress={()=>router.back()} />
           </SafeAreaView>
-          
+          <Text style = {{color: 'white'}}>1.4k posts 64.3K Likes 15.3 Fans</Text>
 
       </ImageBackground>
 
       <View>
-              <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>{user.name}</Text>
-            
-            {/* <Text>profilepage:{user.coverImage}</Text> */}
-            <Text style = {{color: 'white'}}>1.4k posts 64.3K Likes 15.3 Fans</Text>
-            {/* <Text>profilepage:{user.location}</Text> */}
-      </View>
+        <Image src ={user.avatar} style={styles.userImage} />
+       <FontAwesome name="share-square-o" size={24} color="black" />
      
 
 
       {/* <Text
       onPress={()=>router.back()}
       > Go Back </Text> */}
-
+                      <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>{user.name}</Text>
+                      </View>
     </View>
   )
 }
@@ -52,7 +49,17 @@ const styles = StyleSheet.create({
     overlay: {
       ...StyleSheet.absoluteFillObject,
         backgroundColor: "rgba(0,0,0,0.5)",
-    }
+    },
+    userImage:{
+      width: 75,
+      height: 75,
+      borderRadius: 50,
+      marginLeft: 10,
+      borderColor: 'white',
+      borderWidth: 3,
+      
+  },
+
   });
 
 export default ProfilePage;
