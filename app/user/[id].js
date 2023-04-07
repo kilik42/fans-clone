@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, StyleSheet,Image, SafeAreaView } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet,Image, SafeAreaView, Pressable } from 'react-native'
 import React from 'react'
 import { useRouter, useSearchParams } from 'expo-router';
 import users from '../../Asset BundleFans/assets/data/users';
@@ -28,17 +28,32 @@ const ProfilePage = () => {
 
       </ImageBackground>
 
-      <View style ={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', padding: 10}}>
-        <Image source ={user.avatar} style={styles.userImage} />
-       <FontAwesome name="share-square-o" size={24} color="black" />
-     
+      <View style={{padding: 10}}>
+            <View style ={{flexDirection: 'row', alignItems: 'flex-end', justifyContent: 'space-between', padding: 10}}>
+                            <Image source ={user.avatar} style={styles.userImage} />
+                          <FontAwesome name="share-square-o" size={24} color="black" />
+                        
+      </View>
+
+      
 
 
-      <Text
-      onPress={()=>router.back()}
-      > Go Back </Text>
-                      <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>{user.name}</Text>
-                      </View>
+                      <Text
+                      onPress={()=>router.back()}
+                      > Go Back </Text>
+                      
+                      <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginVertical:5,}}>{user.name}</Text>
+
+                      <Text style={{color: 'white', fontSize:20, fontWeight: '500', marginBottom:5,}}>@{user.handle}</Text>
+                      <Text style={{color: 'gray', marginBottom: 10,}}>{user.bio}</Text>
+
+                      <Text style={{color: 'gray', marginTop: 20, fontWeight: 'bold'}}> Subscription </Text>
+        
+            <Pressable style ={styles.button}>
+              <Text style ={styles.buttonText}>Subscribed</Text>
+              <Text style ={styles.buttonText}>for free</Text>
+            </Pressable>
+          </View>
     </View>
   )
 }
@@ -61,7 +76,22 @@ const styles = StyleSheet.create({
       borderWidth: 3,
       
   },
+  buttonText:{
+    color: 'royalblue',
+    fontSize: 20,
+    fontWeight: 'bold',
+    // marginVertical: 10,
+  },
+  button:{
+    flexDirection: 'row',
+    borderWidth: 1,
+    borderColor: 'gray',
+    borderRadius: 30,
+    padding: 10,
+    paddingHorizontal: 20,
+    marginVertical: 10,
+    justifyContent: 'space-between',
 
-  });
-
+  },
+});
 export default ProfilePage;
