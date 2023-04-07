@@ -3,8 +3,11 @@ import React from 'react'
 import { useRouter, useSearchParams } from 'expo-router';
 import users from '../../Asset BundleFans/assets/data/users';
 import {Ionicons,FontAwesome} from '@expo/vector-icons';
+import {useState} from 'react';
 
 const ProfilePage = () => {
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
    const router = useRouter(); 
    const {id}= useSearchParams();
    const user = users.find((user) => user.id === id);
@@ -49,9 +52,15 @@ const ProfilePage = () => {
 
                       <Text style={{color: 'gray', marginTop: 20, fontWeight: 'bold'}}> Subscription </Text>
         
-            <Pressable style ={styles.button}>
-              <Text style ={styles.buttonText}>Subscribed</Text>
-              <Text style ={styles.buttonText}>for free</Text>
+            <Pressable onPress = {()=> setIsSubscribed(!isSubscribed)}
+                       style ={[styles.button, {backgroundColor: isSubscribed ? 'white': 'royalblue'},
+                       
+                       ]}>
+              <Text style ={[styles.buttonText,
+              {color: isSubscribed ? 'royalblue' : 'white'}]
+              }>{isSubscribed ? 'subscribed' : 'subscribe'} </Text>
+              <Text style ={[styles.buttonText,
+              {color: isSubscribed ? 'royalblue' : 'white'}]}>{user.subscriptionPrice === 0 ? 'for free' : `$${user.subscriptionPrice} / month`}</Text>
             </Pressable>
           </View>
     </View>
